@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sample Vue.js Page</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <div id="guestbook-app" class="container">
+        <h1>Vue.js</h1>
+        <form>
+            <div class="form">
+                <div class="form-group">
+                    <input type="text" v-model="newEntry.name">
+                </div>
+                <div class="form-group">
+                    <textarea name="" id="" cols="50" rows="10" v-model="newEntry.text"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-default" @click.stop.prevent="addNewEntry()">按钮</button>
+            </div>
+            <div class="forms">
+                <h2>表单</h2>
+                <div class="form-group">
+                    <input type="text" v-model="username" placeholder="输入用户名">
+                </div>
+                <div class="form-group">
+                    <select v-model="gender">
+                        <option value="Male" selected="selected">男</option>
+                        <option value="Female">女</option>
+                    </select>   
+                </div>
+                <input type="button" class="btn btn-default" value="按钮" @click="processForm()" />
+            </div>
+        </form>
+        <ul class="entries-list">
+            <li v-for="entry in entries">
+                <p>{{ entry.text }}</p>
+                <small>Posted by {{ entry.user }}</small>
+            </li>
+        </ul>
+        <h2>组件</h2>
+        <!--<sample-component></sample-component>-->
+        <my-article>
+            <header slot="header">头部</header>
+            文章内容
+            <footer slot="footer">底部</footer>
+        </my-article>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        /*Vue.component('sample-component',{
+            template: '<div><p>Hello {{name}}</p> --> <child-component></child-component></div>',
+            data: function() {
+                return {
+                    name: 'jack'
+                }
+            },
+            components: {
+                'child-component': {
+                    template: '<p>子组件</p>'
+                }
+            }
+        })*/
+        Vue.component('myArticle',{
+            template: '<div class="article">' +
+            '<slot name="header"></slot>' +
+            '<p class="article-text"><slot></slot></p>' +
+            '<slot name="footer"></slot>' +
+            '</div>'
+        })
+        new Vue({
+            el: '#guestbook-app',
+            data: {
+                username: '',
+                gender: '',
+                newEntry: {
+                    name: '',
+                    text: ''
+                },
+                message: 'Hello Vue.js',
+                entries: [{
+                    text: 'Hi',
+                    user: 'Jack'
+                },{
+                    text: 'Yo',
+                    user: 'Chen'
+                }]
+            },
+            methods: {
+                addNewEntry () {
+                    this.entries.push({
+                        text: this.newEntry.text,
+                        user: this.newEntry.name
+                    })
+                },
+                processForm () {
+                    if(this.username == 'Brown' && this.gender == 'Male'){
+                        alert(`Hello ${this.username}`)
+                    }else{
+                        alert(`用户信息不匹配`)
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

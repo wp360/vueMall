@@ -1,9 +1,12 @@
 <template>
   <div id="app">
+    <!--
     <img src="./assets/logo.png">
     <router-view class="main"></router-view>
     <router-view class="left" name="title"></router-view>
     <router-view class="right" name="img"></router-view>
+    -->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -20,12 +23,5 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
-  }
-  .left,.right{
-    float: left;
-    width: 49%;
-    min-height: 200px;
-    border: 2px solid grey;
   }
 </style>
