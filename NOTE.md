@@ -139,4 +139,3 @@ vue-resource发送post请求报405错误或是404（json文件找不到）
 ```
 #### 注：
 http方法>> 当使用get时，userId之类参数由params定义而post使用data定义。
-
