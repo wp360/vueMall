@@ -139,3 +139,58 @@ vue-resource发送post请求报405错误或是404（json文件找不到）
 ```
 #### 注：
 http方法>> 当使用get时，userId之类参数由params定义而post使用data定义。
+
+## 商品列表
+```html
+    <ul>
+        <li>
+        <div class="pic">
+            <a href="#"><img src="static/1.jpg" alt=""></a>
+        </div>
+        <div class="main">
+            <div class="name">XX</div>
+            <div class="price">999</div>
+            <div class="btn-area">
+            <a href="javascript:;" class="btn btn--m">加入购物车</a>
+            </div>
+        </div>
+        </li>
+        <li>
+        <div class="pic">
+            <a href="#"><img src="static/2.jpg" alt=""></a>
+        </div>
+        <div class="main">
+            <div class="name">XX</div>
+            <div class="price">1000</div>
+            <div class="btn-area">
+            <a href="javascript:;" class="btn btn--m">加入购物车</a>
+            </div>
+        </div>
+        </li>
+        <li>
+        <div class="pic">
+            <a href="#"><img src="static/3.jpg" alt=""></a>
+        </div>
+        <div class="main">
+            <div class="name">XX</div>
+            <div class="price">500</div>
+            <div class="btn-area">
+            <a href="javascript:;" class="btn btn--m">加入购物车</a>
+            </div>
+        </div>
+        </li>
+        <li>
+        <div class="pic">
+            <a href="#"><img src="static/4.jpg" alt=""></a>
+        </div>
+        <div class="main">
+            <div class="name">XX</div>
+            <div class="price">2499</div>
+            <div class="btn-area">
+            <a href="javascript:;" class="btn btn--m">加入购物车</a>
+            </div>
+        </div>
+        </li>
+    </ul>
+```
+> li遍历替换v-for
