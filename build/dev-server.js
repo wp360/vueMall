@@ -25,10 +25,16 @@ const app = express()
 const router = express.Router()
 const goodsData = require('./../mock/goods.json')
 
+// const typeData = require('./../mock/type.json')
+
 router.get("/goods",function (req,res,next) {
   res.json(goodsData);
 })
-
+/*
+router.get("/type",function (req,res,next) {
+  res.json(typeData);
+})
+*/
 app.use(router)
 
 const compiler = webpack(webpackConfig)
